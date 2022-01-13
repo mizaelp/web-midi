@@ -2,11 +2,55 @@ button {
     position: absolute;
     top: 0;
     right: 0;
-    bottom: 0;
+    bottom: -300px;
     left: 0;
     margin: auto;
-    width: 100px;
-    height: 25px;
-    background-color: blanchedalmond;
+    height: 50px;
+    background-color: rgb(43, 85, 173);
     border-radius: 5px;
+    font-size: 16px;
+    color: white;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.key_name {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -100px;
+    left: 0;
+    margin: auto;
+    max-width: max-content;
+    height: max-content;
+    font-size: 24px;
+}
+
+.sheet_music {
+    position: absolute;
+    top: 100px;
+    right: 100px;
+    bottom: 500px;
+    left: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+
+.line_sheet {
+    background-color: black;
+    height: 5px;
+}
+
+.dot_sheet {
+    /* display: none; */
+    position: relative;
+    top: 15px;
+    background-color: black;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    left: -50px;
 }

@@ -1,5 +1,8 @@
 import notes from './notes.js';
 
+const DISPLAY_MESSAGE = document.querySelector(".key_name")
+let left = 50 
+
 document.querySelector("button").addEventListener("click", () => {
 
     const getMIDIMessage = midiMessage => {
@@ -13,8 +16,15 @@ document.querySelector("button").addEventListener("click", () => {
         if(command === 144) {
             playNote(notes[note][1])
         }
-    
-        console.log(`You press a ${notes[note][0]} note. The frequency is ${notes[note][1]}`)
+
+        document.querySelector(`#${notes[note][0].charAt()}`).innerHTML = `<div class="dot_sheet"></div>`
+        DISPLAY_MESSAGE.textContent = `You press a ${notes[note][0]} note. The frequency is ${notes[note][1]} hertz`
+
+        const dotKey = document.querySelector(`#${notes[note][0].charAt()}`).children[0]
+
+        left += 50
+        dotKey.style.display = "block"
+        dotKey.style.left = `${left}px`
     }
     
     navigator.requestMIDIAccess()
@@ -25,7 +35,7 @@ document.querySelector("button").addEventListener("click", () => {
             }
             
         }, () => {
-            console.log('Could not access your MIDI devices')
+            DISPLAY_MESSAGE.textContent = `Could not access your MIDI devices`
         })
     
     const playNote = key => {
