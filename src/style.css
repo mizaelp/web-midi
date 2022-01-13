@@ -45,12 +45,22 @@ button:hover {
 }
 
 .dot_sheet {
-    /* display: none; */
     position: relative;
-    top: 15px;
+    top: -12px;
     background-color: black;
     width: 30px;
     height: 30px;
     border-radius: 50%;
-    left: -50px;
+}
+
+.dot_sheet::after {
+    content: '';
+    position: absolute;
+    top: -78px;
+    left: 25px;
+    background-color: black;
+    width: 6px;
+    height: 100px;
+    transform: rotate(-180deg);
+    border-radius: 50% 0 0;
 }
