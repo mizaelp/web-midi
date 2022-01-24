@@ -1,7 +1,6 @@
 import notes from './notes.js';
 
 const DISPLAY_MESSAGE = document.querySelector(".key_name")
-let left = -50
 
 document.querySelector("button").addEventListener("click", () => {
 
@@ -13,15 +12,16 @@ document.querySelector("button").addEventListener("click", () => {
         const note = data[1]
         const velocity = (data.length > 2) ? data[2] : 0
 
+        // Key down
         if (command === 144) {
             playNote(notes[note][1])
-            document.querySelector(`#${notes[note][0].charAt()}`).innerHTML = `<div class="dot_sheet"></div>`
-            const dotKey = document.querySelector(`#${notes[note][0].charAt()}`).children[0]
             DISPLAY_MESSAGE.textContent = `You press a ${notes[note][0]} note. The frequency is ${notes[note][1]} hertz`
+            document.querySelector(`[data-${notes[note][0].charAt()}]`).style.display = "block"
+        }
 
-            left += 50
-            dotKey.style.display = "block"
-            dotKey.style.left = `${left}px`
+        // Key up
+        if (command === 128) {
+            document.querySelector(`[data-${notes[note][0].charAt()}]`).style.display = "none"
         }
 
     }
